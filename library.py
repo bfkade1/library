@@ -67,11 +67,11 @@ def check_out(filename, isbn, s_id):
 
     # Find a way to mark a book as checked out. Be sure to associate
     # the book with the student who borrowed it!
-
+    books[isbn]['checked_out'] = s_id
 
     # And again save the data here
-
-    pass
+    with open(filename) as f:
+        json.dump({'students':students, 'books':books}, f)
 
 
 def return_book(filename, isbn):
