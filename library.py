@@ -46,7 +46,7 @@ def add_book(filename, isbn, title, author):
 
     # Finally, write code that writes the new data to the library
     # Do we need to return anything?
-    with open(filename) as f:
+    with open(filename, 'w') as f:
         json.dump({'students':students,'books':books}, f)
 
 def remove_book(filename, isbn):
@@ -58,7 +58,7 @@ def remove_book(filename, isbn):
     del(books[isbn])
 
     # Now write code that saves the new version of the data to your library
-    with open(filename) as f:
+    with open(filename, 'w') as f:
         json.dump({'students':students, 'books':books}, f)
 
 
@@ -70,7 +70,7 @@ def check_out(filename, isbn, s_id):
     books[isbn]['checked_out'] = s_id
 
     # And again save the data here
-    with open(filename) as f:
+    with open(filename, 'w') as f:
         json.dump({'students':students, 'books':books}, f)
 
 
